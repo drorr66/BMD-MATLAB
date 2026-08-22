@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or reproducibility artifact, please cite the associated study."
+title: "BMD-MATLAB"
+type: software
+authors:
+  - family-names: "Rotter"
+    given-names: "Dror"
+repository-code: "https://github.com/drorr66/BMD-MATLAB"
+version: "1.1.1"
+date-released: "2026-08-22"
+abstract: >-
+  MATLAB implementation, deterministic validation workloads, validation scripts,
+  raw cross-environment results, and reproducibility artifacts for the study
+  revisiting large-scale polynomial manipulation with multiplicative Binary
+  Moment Diagrams (*BMDs).
+license: "NOASSERTION"
