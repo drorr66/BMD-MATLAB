@@ -18,6 +18,8 @@ The Git commit that first added the frozen artifact and both final result sets i
 
 `64f7104f46da1e8bfcd64a1cbb7e6906c4b0d3ad`
 
+Git tag `v1.1.1` has been created and verified. It identifies the frozen reproducibility state for this research package prior to GitHub Release and archival publication.
+
 ## Final validation design
 
 The final study uses:
@@ -84,7 +86,8 @@ Before making this repository public:
 - verify both preserved final result sets;
 - reconstruct the manuscript's aggregate tables and key figures from the preserved outputs;
 - choose and add an explicit software/data license;
-- create and verify Git tag/release `v1.1.1`;
+- verify that Git tag `v1.1.1` points to the intended final documentation state;
+- create the GitHub Release for `v1.1.1`;
 - archive the release with a DOI-providing service such as Zenodo if desired;
 - update the manuscript's Data and Code Availability statement with the public repository URL and archival DOI.
 
