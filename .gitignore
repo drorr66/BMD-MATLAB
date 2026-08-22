@@ -1,0 +1,35 @@
+# MATLAB generated files
+*.asv
+*.m~
+*.autosave
+*.fig
+*.mlx.autosave
+
+# MATLAB cache / project metadata
+*.slxc
+slprj/
+codegen/
+DerivedData/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE metadata
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+~$*
+
+# Local-only scratch/output directories
+scratch/
+tmp/
+temp/
+
+# Do not ignore research results or validation artifacts by default.
+# Files needed to reproduce the manuscript should be committed explicitly.
