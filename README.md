@@ -4,30 +4,35 @@ Reproducibility repository for the study:
 
 **Manipulation of Large-Scale Polynomials Using BMDs Revisited: Structural Closure, Representation-State-Aware Evaluation, and Cross-Environment Replication**
 
-This repository is intended to contain the MATLAB implementation, deterministic validation workloads, validation scripts, preserved raw result files, and supporting reproducibility material for the study.
+This repository preserves the MATLAB research artifact, deterministic validation material, and the two final result sets used by the manuscript.
 
 ## Status
 
-The repository is currently being prepared as the reproducibility package for the final validation artifact. The manuscript reports the frozen package as **BMD-MATLAB v1.1.1**.
+The repository is currently private while the reproducibility package is being finalized. The manuscript identifies the frozen validation package as **BMD-MATLAB v1.1.1**.
 
-The repository will remain private while the artifact is assembled and checked. It can be made public before submission or when the manuscript is released.
+The preserved source ZIP for that package was independently checked before repository publication and has SHA-256:
 
-## Planned repository structure
+`15cdcadb00f9bceb0921e430befc65e6463d271873e0f20a277d1dc09d59844c`
+
+The extracted frozen artifact is stored under `artifact/v1.1.1/`. It contains 145 files and was committed without renaming or restructuring the files inside the package.
+
+## Repository structure
 
 ```text
 BMD-MATLAB/
-├── src/                         MATLAB implementation
-├── workloads/                   deterministic workload definitions
-├── validation/                  correctness and validation scripts
+├── artifact/
+│   └── v1.1.1/                  frozen BMD-MATLAB research artifact
 ├── results/
-│   ├── linux-matlab-online/     preserved Linux / MATLAB Online results
-│   └── windows-matlab-desktop/  preserved Windows / MATLAB Desktop results
-├── figures/                     scripts/data used to reproduce manuscript figures
+│   ├── linux-matlab-online/     final Linux / MATLAB Online result set
+│   └── windows-matlab-desktop/  final Windows / MATLAB Desktop result set
+├── figures/                     figure-related material, if added separately
 ├── docs/                        supplementary reproducibility documentation
 ├── CITATION.cff
 ├── REPRODUCIBILITY.md
 └── README.md
 ```
+
+The final result files are preserved separately from the frozen artifact because the artifact contains the code and validation machinery used to generate and check them, while the two `results/` directories contain the preserved outputs from the final execution environments.
 
 ## Experimental scope
 
@@ -37,30 +42,60 @@ The final validation set contains 60 deterministic workloads across nine familie
 - explicit sparse term lists, implemented independently in two pair-product forms;
 - canonical multiplicative Binary Moment Diagrams (*BMDs).
 
-The paper reports results from two MATLAB R2026a environments: Linux / MATLAB Online and Windows / MATLAB Desktop.
+The two final execution environments are:
+
+- **Linux / MATLAB Online:** MATLAB R2026a Update 5, GLNXA64
+- **Windows / MATLAB Desktop:** MATLAB R2026a Update 4, PCWIN64
+
+## Preserved final result files
+
+Each environment directory contains the final publication-oriented outputs:
+
+- `publication_family_summary_v111.csv`
+- `publication_validation_results_v111.csv`
+- `publication_validation_summary_v111.csv`
+- `publication_validation_trials_v111.csv`
+- `run_metadata_v111.txt`
 
 ## Reproducibility principles
 
-The published artifact is intended to preserve:
+The repository preserves:
 
-- the exact workload definitions used in the final validation runs;
-- the implementation and validation code used for the reported experiments;
-- raw outputs from both execution environments;
-- enough documentation to reproduce the reported aggregate tables and figures;
-- explicit separation between operation timing, representation-conversion timing, and correctness validation.
+- the exact frozen research artifact used for the final validation stage;
+- the workload definitions and implementation code contained in that artifact;
+- the final raw/publication result sets from both execution environments;
+- correctness and validation machinery kept outside the measured timing regions;
+- explicit separation between operation timing, sparse-to-BMD conversion timing, and correctness validation;
+- integrity metadata and historical validation material retained inside the frozen artifact.
 
-## Versioning
+## Versioning and integrity
 
-The manuscript currently identifies the final validation package as:
+The manuscript refers to the package as:
 
 `BMD-MATLAB v1.1.1`
 
-A release/tag corresponding to that package will be created only after the repository contents have been checked against the preserved research artifact.
+Source ZIP SHA-256:
+
+`15cdcadb00f9bceb0921e430befc65e6463d271873e0f20a277d1dc09d59844c`
+
+The Git commit that first added the frozen artifact and the two preserved final result sets is:
+
+`64f7104f46da1e8bfcd64a1cbb7e6906c4b0d3ad`
+
+A Git tag/release `v1.1.1` should be created after the remaining repository checks are complete and before public archival.
+
+## Reproducing and validating the study
+
+Start with the instructions and validation material inside:
+
+`artifact/v1.1.1/`
+
+In particular, consult the package's own run/readiness notes and v1.1.1 publication-validation scripts before modifying any file. The frozen artifact should be treated as immutable; any future experimental changes should be made outside `artifact/v1.1.1/` or in a later versioned artifact.
 
 ## Citation
 
-Citation metadata is provided in `CITATION.cff`. The manuscript is not yet assigned a publication DOI.
+Citation metadata is provided in `CITATION.cff`. The manuscript does not yet have a publication DOI.
 
 ## License
 
-No software license has been selected yet. A license will be added before public release.
+No software/data license has been selected yet. A license should be added before the repository is made public.
