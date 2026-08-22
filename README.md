@@ -82,7 +82,7 @@ The Git commit that first added the frozen artifact and the two preserved final 
 
 `64f7104f46da1e8bfcd64a1cbb7e6906c4b0d3ad`
 
-A Git tag/release `v1.1.1` should be created after the remaining repository checks are complete and before public archival.
+Git tag `v1.1.1` has been created and verified. It identifies the frozen reproducibility state for this research package prior to GitHub Release and archival publication.
 
 ## Reproducing and validating the study
 
