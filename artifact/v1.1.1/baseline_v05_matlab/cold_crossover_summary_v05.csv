@@ -1,0 +1,2 @@
+comparison,median_status,median_n_low,median_n_high,median_ratio_low,median_ratio_high,median_crossover_estimate,robust_status,robust_n_low,robust_n_high,robust_low_at_low,robust_low_at_high,robust_crossover_estimate,sustained_median_bmd_from,sustained_robust_bmd_from
+sparse_over_bmd_cold,BRACKETED,128,160,0.882246376811594,1.19195979899497,140.463058310472,BRACKETED,128,160,0.681851048445409,1.07669322709163,154.327955050839,160,160

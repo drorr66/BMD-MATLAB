@@ -1,0 +1,10 @@
+BMD-MATLAB v1.0 cross-family validation
+Generated: 2026-08-20 20:29:45
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Frozen predictor: v0.9-static-20260820 (no threshold retuning in v1.0).
+Validation cases: 15 across 9 families.
+BMD conversion timing starts from existing sparse term lists and includes compact().
+Break-even assumes conversion + predictor once, followed by repeated BMD multiply versus repeated sparse multiply.
+Dense baseline is measured only when result coefficient count <= 250000 and is diagnostic, not routed by v0.9.
+UNCERTAIN remains an intentional predictor outcome.

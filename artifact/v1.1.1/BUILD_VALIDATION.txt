@@ -1,0 +1,19 @@
+BMD-MATLAB v1.1.1 build validation
+Date: 2026-08-21
+
+Scope: validation-only patch over v1.1.
+
+PASS - Core BMDManager.m is byte-identical to v1.1.
+PASS - v0.9 predictor files are byte-identical to v1.1.
+PASS - build_publication_case_v11.m is byte-identical to v1.1 (same 60 cases).
+PASS - both sparse baselines are byte-identical to v1.1.
+PASS - V11_PREREGISTERED_CLAIMS.md is byte-identical to v1.1.
+PASS - expected_structure_v11.csv is byte-identical to v1.1.
+PASS - Timed operation/economics segment of run_publication_validation is byte-identical to v1.1; only post-timing validation/output fields changed.
+PASS - First v1.1 MATLAB results archived verbatim under baseline_v11_first_environment/.
+PASS - Independent exact Python reference rerun: 60/60 products; max abs coefficient 601080390.
+PASS - Independent cancellation reproduction: direct double evaluation of (1-x)^32 at x=0.999 differs from closed form by ~1.046e-7, exceeding the old 1e-8 gate.
+PASS - New validator contains no call to BMDManager.multiply; validation remains outside the timed operation region.
+
+NOT EXECUTED LOCALLY - MATLAB/Octave is not installed in this environment.
+The v1.1.1 MATLAB regression test and full 60-case rerun must be executed by the user in MATLAB.

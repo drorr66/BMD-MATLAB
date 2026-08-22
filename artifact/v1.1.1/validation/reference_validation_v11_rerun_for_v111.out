@@ -1,0 +1,63 @@
+v1.1 independent exact publication validation
+01 fir_box_32x32                  BOXCAR_FIR               32x  32 new=    80 result=   62 terms=   63
+02 fir_box_64x64                  BOXCAR_FIR               64x  64 new=   148 result=  126 terms=  127
+03 fir_box_128x64                 BOXCAR_FIR              128x  64 new=   213 result=  190 terms=  191
+04 fir_box_128x128                BOXCAR_FIR              128x 128 new=   280 result=  254 terms=  255
+05 fir_box_256x128                BOXCAR_FIR              256x 128 new=   409 result=  382 terms=  383
+06 fir_box_256x256                BOXCAR_FIR              256x 256 new=   540 result=  510 terms=  511
+07 cic_comb_32x32_d2_d3           CIC_COMB                 32x  32 new=   155 result=   64 terms=  154
+08 cic_comb_48x48_d2_d4           CIC_COMB                 48x  48 new=    92 result=   71 terms=  142
+09 cic_comb_64x64_d3_d5           CIC_COMB                 64x  64 new=   685 result=  244 terms=  497
+10 cic_comb_64x96_d4_d8           CIC_COMB                 64x  96 new=   146 result=  127 terms=  254
+11 cic_comb_96x96_d5_d9           CIC_COMB                 96x  96 new=  1199 result=  354 terms= 1299
+12 cic_comb_128x64_d8_d16         CIC_COMB                128x  64 new=   149 result=  127 terms=  254
+13 cic_comb_128x128_d7_d11        CIC_COMB                128x 128 new=  1974 result=  634 terms= 2227
+14 cic_comb_192x96_d16_d32        CIC_COMB                192x  96 new=   216 result=  191 terms=  382
+15 polyphase_sep_64x64_s128       POLYPHASE_SEPARATED      64x  64 new=     6 result=   12 terms= 4096
+16 polyphase_sep_64x128_s128      POLYPHASE_SEPARATED      64x 128 new=     6 result=   13 terms= 8192
+17 polyphase_sep_128x64_s256      POLYPHASE_SEPARATED     128x  64 new=     7 result=   13 terms= 8192
+18 polyphase_sep_128x128_s256     POLYPHASE_SEPARATED     128x 128 new=     7 result=   14 terms=16384
+19 polyphase_sep_128x256_s256     POLYPHASE_SEPARATED     128x 256 new=     7 result=   15 terms=32768
+20 polyphase_sep_256x64_s512      POLYPHASE_SEPARATED     256x  64 new=     8 result=   14 terms=16384
+21 polyphase_sep_256x128_s512     POLYPHASE_SEPARATED     256x 128 new=     8 result=   15 terms=32768
+22 polyphase_sep_256x256_s512     POLYPHASE_SEPARATED     256x 256 new=     8 result=   16 terms=65536
+23 periodic_mask_01               PERIODIC_MASK           128x  64 new=    48 result=   32 terms= 1360
+24 periodic_mask_02               PERIODIC_MASK           256x  64 new=    48 result=   33 terms= 2720
+25 periodic_mask_03               PERIODIC_MASK           256x 128 new=    59 result=   41 terms= 4768
+26 periodic_mask_04               PERIODIC_MASK           256x  96 new=   122 result=   46 terms= 3872
+27 periodic_mask_05               PERIODIC_MASK           128x  64 new=     7 result=   13 terms= 8192
+28 periodic_mask_06               PERIODIC_MASK           256x  64 new=     8 result=   14 terms=16384
+29 periodic_mask_07               PERIODIC_MASK           256x 128 new=     8 result=   15 terms=32768
+30 periodic_mask_08               PERIODIC_MASK           256x  96 new=    14 result=   21 terms=24576
+31 subset_sum_01                  SUBSET_SUM               64x  64 new=     6 result=   12 terms= 4096
+32 subset_sum_02                  SUBSET_SUM               64x  32 new=   679 result=  123 terms= 2048
+33 subset_sum_03                  SUBSET_SUM               64x  16 new=  1192 result=  370 terms= 1024
+34 subset_sum_04                  SUBSET_SUM               32x  32 new=  1109 result=  133 terms=  245
+35 subset_sum_05                  SUBSET_SUM               32x  32 new=  1657 result=  211 terms=  327
+36 subset_sum_06                  SUBSET_SUM               64x  64 new=   851 result=  262 terms=  733
+37 subset_sum_07                  SUBSET_SUM               32x  32 new=   916 result=  137 terms=  220
+38 subset_sum_08                  SUBSET_SUM               32x  32 new=  1561 result=  236 terms=  396
+39 bounded_resource_01            BOUNDED_RESOURCE         64x  16 new=     6 result=   10 terms= 1024
+40 bounded_resource_02            BOUNDED_RESOURCE         45x   9 new=   693 result=  141 terms=  405
+41 bounded_resource_03            BOUNDED_RESOURCE         48x  36 new=  1556 result=  211 terms=  299
+42 bounded_resource_04            BOUNDED_RESOURCE         49x   9 new=    30 result=   34 terms=  441
+43 bounded_resource_05            BOUNDED_RESOURCE         72x   6 new=   443 result=  169 terms=  432
+44 bounded_resource_06            BOUNDED_RESOURCE         48x  48 new=  1909 result=  241 terms=  339
+45 binomial_diff_01               BINOMIAL_DIFFERENCE       9x   9 new=    69 result=   16 terms=   17
+46 binomial_diff_02               BINOMIAL_DIFFERENCE      13x  11 new=   193 result=   22 terms=   23
+47 binomial_diff_03               BINOMIAL_DIFFERENCE      17x  13 new=   338 result=   28 terms=   29
+48 binomial_diff_04               BINOMIAL_DIFFERENCE      19x  15 new=   451 result=   32 terms=   33
+49 binomial_diff_05               BINOMIAL_DIFFERENCE      21x   9 new=   237 result=   28 terms=   29
+50 binomial_diff_06               BINOMIAL_DIFFERENCE      23x  11 new=   332 result=   32 terms=   33
+51 irregular_control_01           IRREGULAR_CONTROL        24x  24 new=  2185 result=  350 terms=  487
+52 irregular_control_02           IRREGULAR_CONTROL        32x  32 new=  3984 result=  551 terms=  701
+53 irregular_control_03           IRREGULAR_CONTROL        40x  40 new=  7174 result=  967 terms= 1424
+54 irregular_control_04           IRREGULAR_CONTROL        48x  48 new=  9682 result= 1181 terms= 1938
+55 irregular_control_05           IRREGULAR_CONTROL        56x  56 new= 14545 result= 1768 terms= 2827
+56 irregular_control_06           IRREGULAR_CONTROL        64x  64 new= 18350 result= 2024 terms= 3460
+57 weighted_periodic_01           WEIGHTED_PERIODIC        32x  32 new=    54 result=   43 terms=   62
+58 weighted_periodic_02           WEIGHTED_PERIODIC        32x  48 new=   112 result=   47 terms=   80
+59 weighted_periodic_03           WEIGHTED_PERIODIC        64x  64 new=   265 result=  112 terms=  308
+60 weighted_periodic_04           WEIGHTED_PERIODIC        96x  96 new=   326 result=   71 terms=  176
+PASS: 60/60 exact products; max new nodes=18350; max abs coefficient=601080390
+WROTE: /mnt/data/BMD_MATLAB_v1_1_1/validation/expected_structure_v11.csv

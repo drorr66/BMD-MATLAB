@@ -1,0 +1,10 @@
+BMD-MATLAB v0.5 focused cold crossover
+Generated: 2026-08-20 18:10:25
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Trials per case: 9
+inner_n: 255
+stride_power: 10
+blocks: [96 128 160 192 256 384 512 1024]
+Winner rule: ratio=sparse_time/BMD_time; >1 means BMD faster.
+Robust BMD win: sparse Q25 / BMD Q75 > 1.

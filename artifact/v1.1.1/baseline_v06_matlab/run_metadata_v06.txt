@@ -1,0 +1,15 @@
+BMD-MATLAB v0.6 structural-sharing map
+Generated: 2026-08-20 18:37:13
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Trials per case: 7
+blocks: 64
+inner_universe: 256
+terms_per_template: 128
+stride_power: 9
+multiplier_n: 31
+unique_templates: [1 2 4 8 16 24 32 48 64]
+All P cases have exactly blocks*terms_per_template terms.
+Winner ratio = sparse_time/BMD_time; >1 means BMD faster.
+Robust BMD win: sparse Q25 / BMD Q75 > 1.
+Robust sparse win: sparse Q75 / BMD Q25 < 1.

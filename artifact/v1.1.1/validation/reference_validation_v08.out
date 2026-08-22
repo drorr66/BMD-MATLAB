@@ -1,0 +1,15 @@
+v0.8 independent exact threshold-calibration validation
+target overlap qbits Pnodes Qnodes union result new cache sparse_out max_coeff exact
+     8      -1 9,10,11,12,13,14,15,16       8      8    16     16    8     8      65536         1 PASS
+    12       7 7,9,10,11,12,13,14,15        8      8    16     16   12     9      49152         2 PASS
+    16       6 6,9,10,11,12,13,14,15        8      8    16     17   16    10      40960         2 PASS
+    20       5 5,9,10,11,12,13,14,15        8      8    16     18   20    11      36864         2 PASS
+    24       4 4,9,10,11,12,13,14,15        8      8    16     19   24    12      34816         2 PASS
+    28       3 3,9,10,11,12,13,14,15        8      8    16     20   28    13      33792         2 PASS
+    32       2 2,9,10,11,12,13,14,15        8      8    16     21   32    14      33280         2 PASS
+    36       1 1,9,10,11,12,13,14,15        8      8    16     22   36    15      33024         2 PASS
+    40       0 0,9,10,11,12,13,14,15        8      8    16     23   40    16      32896         2 PASS
+PASS fixed explicit input cardinality: 256 x 256 terms in all 9 cases
+PASS fixed individual BMD input size: 8 nodes each; union 16 nodes
+PASS exact new-node calibration grid: 8,12,16,20,24,28,32,36,40
+PASS exact BMD product equals independent sparse convolution in every case

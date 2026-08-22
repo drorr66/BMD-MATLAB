@@ -1,0 +1,9 @@
+BMD-MATLAB v1.1.1 - VALIDATION-ONLY PATCH
+
+MATLAB Online / Desktop:
+  unzip('BMD_MATLAB_v1_1_1.zip')
+  cd('BMD_MATLAB_v1_1_1')
+  run_all
+
+Do not edit the package between the first clean rerun and the second-environment replication.
+Upload the five v111 result files from results/ after the run.

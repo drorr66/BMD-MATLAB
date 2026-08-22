@@ -1,0 +1,13 @@
+BMD-MATLAB v1.1 publication-readiness validation
+Generated: 2026-08-20 21:01:23
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Frozen predictor: v0.9-static-20260820 (no threshold retuning).
+Validation cases: 60 across 9 families; 54 application-formula cases + 6 controls.
+Operation trials per case: 5
+BMD conversion trials per case: 3
+Dense result coefficient cap: 250000
+Sparse baselines: unique+accumarray and independent sort-reduce; best median is used for BMD-vs-sparse claims.
+BMD memory metric: WHOS bytes of packed reachable numeric DAG only; live containers.Map/cache overhead excluded.
+Dense baseline is diagnostic when result coefficient count is within the frozen cap.
+Same package should be run unchanged on a second MATLAB environment before final submission.

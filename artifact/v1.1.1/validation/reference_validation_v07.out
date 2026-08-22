@@ -1,0 +1,19 @@
+v0.7 independent exact operation-closure validation
+s overlap Pnodes Qnodes union result new cache sparse_out max_coeff exact
+ 0       8      8      8     8    510  540    36        511       256 PASS
+ 1       7      8      8    16    383  410    36        766       128 PASS
+ 2       6      8      8    16    256  281    35       1276        64 PASS
+ 3       5      8      8    16    161  184    33       2296        32 PASS
+ 4       4      8      8    16     98  119    30       4336        16 PASS
+ 5       3      8      8    16     59   78    26       8416         8 PASS
+ 6       2      8      8    16     36   53    21      16576         4 PASS
+ 7       1      8      8    16     23   38    15      32896         2 PASS
+ 8       0      8      8    16     16    8     8      65536         1 PASS
+ 9       0      8      8    16     16    8     8      65536         1 PASS
+10       0      8      8    16     16    8     8      65536         1 PASS
+12       0      8      8    16     16    8     8      65536         1 PASS
+PASS fixed explicit input cardinality: 256 x 256 terms at every shift
+PASS fixed individual BMD input size: 8 nodes each at every shift
+PASS result-node endpoint separation: 510 -> 16
+PASS new-node endpoint separation: 540 -> 8
+PASS exact BMD product equals independent sparse convolution at every shift

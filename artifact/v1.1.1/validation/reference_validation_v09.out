@@ -1,0 +1,9 @@
+v0.9 independent exact predictor validation
+fresh synthetic exact bitcube cases=200 median_APE=0.0508 p90_APE=0.1364 max_APE=0.2604
+holdout ('disjoint', 8, 8, 'BMD', 'ORDERED_DISJOINT_BANDS', 8192.0, 16)
+holdout ('single_gap', 12.077505148397004, 12, 'BMD', 'BITCUBE_RIDGE', 5426.286239977163, 16)
+holdout ('carry_chain', 24.236976837935224, 24, 'UNCERTAIN', 'BITCUBE_RIDGE', 2703.9675962153988, 19)
+holdout ('two_overlap', 20.064546917505602, 19, 'BMD', 'BITCUBE_RIDGE', 3266.2586536066847, 18)
+holdout ('two_separate', 46.88422144819353, 45, 'SPARSE', 'BITCUBE_RIDGE', 1397.8263470241573, 29)
+PASS: predictor uses structural features only; exact multiply is invoked only after prediction for scoring
+PASS: fresh synthetic median APE <10%, p90 APE <25%

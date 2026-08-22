@@ -1,0 +1,18 @@
+v1.0 independent exact cross-family validation
+box_overlap_128              family=BOXCAR             terms= 128x 128 new=   280 result_nodes=   254 result_terms=   255
+box_overlap_256              family=BOXCAR             terms= 256x 256 new=   540 result_nodes=   510 result_terms=   511
+box_disjoint_128x320         family=BLOCK_GENERATING   terms= 128x 320 new=     7 result_nodes=    17 result_terms= 40960
+box_disjoint_256x224         family=BLOCK_GENERATING   terms= 256x 224 new=     8 result_nodes=    17 result_terms= 57344
+comb_3x5_128                 family=COMB               terms= 128x 128 new=  1288 result_nodes=   543 result_terms=  1009
+comb_5x9_192                 family=COMB               terms= 192x 192 new=  2070 result_nodes=   716 result_terms=  2643
+periodic_mask_overlap        family=PERIODIC_MASK      terms= 512x 128 new=    59 result_nodes=    42 result_terms=  9536
+periodic_mask_disjoint       family=PERIODIC_MASK      terms= 512x 128 new=     9 result_nodes=    16 result_terms= 65536
+irregular_sparse_64          family=IRREGULAR_CONTROL  terms=  64x  64 new= 12657 result_nodes=  1123 result_terms=  2231
+irregular_sparse_96          family=IRREGULAR_CONTROL  terms=  96x  96 new= 28539 result_nodes=  2096 result_terms=  4807
+binomial_12x10               family=BINOMIAL           terms=  13x  11 new=   193 result_nodes=    22 result_terms=    23
+binomial_18x14               family=BINOMIAL           terms=  19x  15 new=   451 result_nodes=    32 result_terms=    33
+difference_12x10             family=FINITE_DIFFERENCE  terms=  13x  11 new=   193 result_nodes=    22 result_terms=    23
+dense_pm1_64                 family=DENSE_CONTROL      terms=  64x  64 new=  1571 result_nodes=   112 result_terms=   119
+weighted_periodic_96         family=WEIGHTED_PERIODIC  terms=  96x  96 new=   326 result_nodes=    71 result_terms=   176
+PASS: 15/15 exact products; max total internal nodes observed=28777
+PASS: all result coefficients remain within MATLAB v1.0 exact-integer guard

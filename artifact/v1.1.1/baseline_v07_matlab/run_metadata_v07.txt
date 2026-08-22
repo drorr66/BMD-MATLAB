@@ -1,0 +1,16 @@
+BMD-MATLAB v0.7 operation-closure map
+Generated: 2026-08-20 18:50:41
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Trials per case: 9
+P terms: 256
+Q terms: 256
+P BMD nodes expected: 8
+Q BMD nodes expected: 8
+pair products fixed: 65536
+shift_power: [0 1 2 3 4 5 6 7 8 9 10 12]
+P bit band: [0,7]
+Q_s bit band: [s,s+7]
+Winner ratio = sparse_time/BMD_time; >1 means BMD faster.
+Robust BMD win: sparse Q25 / BMD Q75 > 1.
+Robust sparse win: sparse Q75 / BMD Q25 < 1.

@@ -1,0 +1,11 @@
+BMD-MATLAB v0.9 static pre-multiply predictor
+Generated: 2026-08-20 20:12:20
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Predictor never calls BMDManager.multiply.
+Term counts are caller-supplied metadata in v0.9.
+Bitcube ridge training: 800 exact synthetic cases; held-out exact test: 200 cases.
+Exact synthetic test median APE: 0.053538
+Exact synthetic test p90 APE: 0.143390
+Routing calibration basis: measured MATLAB v0.5-v0.8 results.
+UNCERTAIN is intentional; v0.9 prioritizes avoiding false BMD routes.

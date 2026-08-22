@@ -1,0 +1,13 @@
+BMD-MATLAB v1.1.1 frozen component hash audit
+Compared against /mnt/data/BMD_MATLAB_v1_1 source package before v1.1.1 patch.
+
+BMDManager.m                                 BYTE_IDENTICAL 3d69bc4458c31d6e2ba50ef6d8ecdf4ae789d4cf789ced0f1aaf826435a76b9a
+predict_multiply_route_v09.m                 BYTE_IDENTICAL b89fc7789e35b838277a1782809760506fc65014cae8c0f5f18d79c528beff2d
+bmd_predictor_features_v09.m                 BYTE_IDENTICAL fc100d987b1481691a0f682f8a91552824e7512b6e4dcfa359a2fc04c5bbc52d
+build_publication_case_v11.m                 BYTE_IDENTICAL f5f8199889f01f34193d98bc6cadad52d8d48b8f8f5e43d57a8466ef5fa15922
+sparse_terms_multiply.m                      BYTE_IDENTICAL ea0bad3b0c6032b087bec8d647d00792f9945eb25e2aef3dd1be3662e08b43c5
+sparse_terms_multiply_sortreduce_v11.m       BYTE_IDENTICAL 86a634139ed864d1aab60f042a9e98f192042e5512a11bb8a2573b8d11bb6d37
+pack_bmd_roots_v11.m                         BYTE_IDENTICAL 1f648f89a9b6f870d14e180c6c3a091e3d6bec344ed5e129762d1e55b659eb47
+workspace_bytes_v11.m                        BYTE_IDENTICAL 65f9051e0d3aaaf25ea611c4c788183cc35288bbac1dc2fdba4b95adfeeca027
+V11_PREREGISTERED_CLAIMS.md                  BYTE_IDENTICAL 777fd4636e7493bd7d05ed993b90ee36120b8dc55b2b7ec67429c9b5ef92bde8
+validation/expected_structure_v11.csv        BYTE_IDENTICAL 9c4a1f74b3aff6e761a3b0989c5c1d7e0795d0decc407ae6efaf29ebb2f90fd7

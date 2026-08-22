@@ -1,0 +1,3 @@
+PASS direct geometric exponent recursion
+PASS repeated-block grid exponent recursion
+PASS additive-node structural identity checks

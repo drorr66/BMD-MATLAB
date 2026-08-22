@@ -1,0 +1,6 @@
+v1.1.1 validation patch rationale
+binomial_diff_04 direct coefficient evaluation at x=0.999: -1.045995078330364e-07
+closed-form (1-x)^32: 1.0000000000000284e-96
+absolute error: 1.045995078330364e-07
+old 1e-8 gate multiples: 10.4599508
+PASS: x=0.999 is unsuitable as a correctness gate for this alternating polynomial.

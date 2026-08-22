@@ -1,0 +1,16 @@
+BMD-MATLAB v0.8 cold threshold calibration
+Generated: 2026-08-20 19:24:20
+MATLAB version: 26.1.0.3346908 (R2026a) Update 5
+Computer: GLNXA64
+Trials per case: 17
+P bits: [0 1 2 3 4 5 6 7]
+P terms: 256
+Q terms: 256
+pair products fixed: 65536
+Q high bits for one-overlap cases: [9 10 11 12 13 14 15]
+Overlap bits (NaN=fully disjoint Q bits 9..16): [NaN 7 6 5 4 3 2 1 0]
+Expected new nodes: [8 12 16 20 24 28 32 36 40]
+Expected result nodes: [16 16 17 18 19 20 21 22 23]
+Winner ratio = sparse_time/BMD_time; >1 means BMD faster.
+Robust BMD win: sparse Q25 / BMD Q75 > 1.
+Robust sparse win: sparse Q75 / BMD Q25 < 1.

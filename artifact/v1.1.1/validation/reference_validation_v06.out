@@ -1,0 +1,14 @@
+v0.6 independent exact validation
+T  terms  P_nodes  result_nodes  exact_product
+ 1   8192      13          132 PASS
+ 2   8192      87          287 PASS
+ 4   8192     193          640 PASS
+ 8   8192     426         1250 PASS
+16   8192     741         2347 PASS
+24   8192    1057         5186 PASS
+32   8192    1268         4435 PASS
+48   8192    1975         6350 PASS
+64   8192    2288         8435 PASS
+PASS fixed sparse cardinality: 8192 terms at all 9 levels
+PASS sharing endpoint separation: 13 -> 2288 BMD nodes
+PASS exact BMD products equal independent sparse convolution at every level

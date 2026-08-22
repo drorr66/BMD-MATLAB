@@ -1,0 +1,72 @@
+--- /mnt/data/BMD_MATLAB_v1_1/run_publication_validation_v11.m	2026-08-20 20:50:36.078068099 +0000
++++ run_publication_validation_v111.m	2026-08-20 21:14:54.984834539 +0000
+@@ -1,5 +1,5 @@
+-function [results,trials]=run_publication_validation_v11(varargin)
+-%RUN_PUBLICATION_VALIDATION_V11 Frozen publication-readiness validation.
++function [results,trials]=run_publication_validation_v111(varargin)
++%RUN_PUBLICATION_VALIDATION_V111 Validation-only patch over frozen v1.1.
+ %
+ % v1.1 does not retune v0.9. It expands to 60 cases, adds an independent
+ % sort-reduce sparse baseline, conversion-aware economics, and concrete
+@@ -15,7 +15,7 @@
+ root=fileparts(mfilename('fullpath')); nCases=60;
+ rows=repmat(emptyRow(),nCases,1); raw=repmat(emptyTrialRow(),nCases*nTrials,1); rawPos=0;
+ 
+-fprintf('\nBMD-MATLAB v1.1 publication validation\n');
++fprintf('\nBMD-MATLAB v1.1.1 publication validation-only patch\n');
+ fprintf('=======================================\n');
+ fprintf('%d frozen cases; %d operation trials/case; v0.9 predictor unchanged.\n\n',nCases,nTrials);
+ 
+@@ -131,8 +131,12 @@
+         [row.operation_oracle_winner,row.operation_oracle_s]=winner3(row.bmd_median_s,row.sparse_best_median_s,row.dense_median_s,row.dense_eligible);
+         [row.single_shot_oracle_winner,row.single_shot_oracle_s]=winner3(row.bmd_single_shot_from_sparse_s,row.sparse_best_median_s,row.dense_single_shot_from_sparse_s,row.dense_eligible);
+ 
+-        row.numeric_check=checkNumeric(firstMgr,firstProd,firstSU,firstSS,dp,dq,row.dense_eligible);
+-        if ~row.numeric_check, error('BMD:V11Numeric','BMD/sparse/dense validation mismatch.'); end
++        vd=validate_publication_result_v111(firstMgr,firstProd,firstSU,firstSS,dp,dq,row.dense_eligible,denseMax);
++        row.validation_mode=vd.validation_mode; row.sparse_crosscheck=vd.sparse_crosscheck;
++        row.bmd_coefficient_exact=vd.bmd_coefficient_exact; row.bmd_modular_fingerprint=vd.bmd_modular_fingerprint;
++        row.dense_crosscheck=vd.dense_crosscheck; row.stable_eval_diagnostic=vd.stable_eval_diagnostic;
++        row.validation_failure_component=vd.failure_component; row.numeric_check=vd.numeric_check;
++        if ~row.numeric_check, error('BMD:V111Validation','Validation subcheck failed: %s',vd.failure_component); end
+         row.status='OK';
+     catch ME
+         row.status=['ERROR:' ME.identifier];
+@@ -148,8 +152,8 @@
+ results=struct2table(rows); trials=struct2table(raw(1:rawPos));
+ if p.Results.SaveResults
+     outDir=fullfile(root,'results'); if ~exist(outDir,'dir'), mkdir(outDir); end
+-    writetable(results,fullfile(outDir,'publication_validation_results_v11.csv'));
+-    writetable(trials,fullfile(outDir,'publication_validation_trials_v11.csv'));
++    writetable(results,fullfile(outDir,'publication_validation_results_v111.csv'));
++    writetable(trials,fullfile(outDir,'publication_validation_trials_v111.csv'));
+ end
+ end
+ 
+@@ -160,16 +164,6 @@
+ function ord=order3(k), P={[1 2 3],[2 3 1],[3 1 2],[1 3 2],[2 1 3]}; ord=P{1+mod(k-1,numel(P))}; end
+ function ord=order4(k), P={[1 2 3 4],[2 3 4 1],[3 4 1 2],[4 1 2 3],[1 3 2 4]}; ord=P{1+mod(k-1,numel(P))}; end
+ function s=orderText(ord), names={'BMD','SPARSE_UNIQUE','SPARSE_SORT','DENSE'}; s=strjoin(names(ord),'_'); end
+-function tf=checkNumeric(m,p,su,ss,dp,dq,denseEligible)
+-tf=sparse_terms_same(su,ss);
+-for x=[0.5 0.999], a=m.evaluate(p,x); b=sparse_terms_evaluate(su,x); tf=tf && near(a,b); end
+-if denseEligible
+-    z=conv(dp,dq); sd=sparse_terms_to_dense(su,1e7); z=trimDense(z); sd=trimDense(sd);
+-    tf=tf && numel(z)==numel(sd) && all(abs(z-sd)<=1e-9*max(1,max(abs(sd))));
+-end
+-end
+-function p=trimDense(p), idx=find(p~=0,1,'first'); if isempty(idx), p=0; else, p=p(idx:end); end, end
+-function tf=near(a,b), scale=max([1 abs(a) abs(b)]); tf=abs(a-b)<=1e-8*scale; end
+ function q=pct(x,p), x=sort(x(:)); pos=1+(numel(x)-1)*p; lo=floor(pos); hi=ceil(pos); if lo==hi, q=x(lo); else, q=x(lo)+(pos-lo)*(x(hi)-x(lo)); end, end
+ function [name,t]=winner3(b,s,d,denseEligible), vals=[b s]; names={'BMD','SPARSE'}; if denseEligible && isfinite(d), vals(end+1)=d; names{end+1}='DENSE'; end; [t,idx]=min(vals); name=names{idx}; end
+ function r=emptyRow()
+@@ -184,7 +178,8 @@
+ 'sparse_best_over_bmd',NaN,'actual_bs_winner','','actual_bs_robust','','routed_correct',NaN,'false_bmd',0,'false_sparse',0, ...
+ 'bmd_packed_result_bytes',NaN,'sparse_result_bytes',NaN,'dense_result_bytes',NaN,'sparse_result_terms',NaN,'sparse_result_over_bmd_packed_bytes',NaN, ...
+ 'bmd_single_shot_from_sparse_s',NaN,'bmd_single_shot_speedup_vs_sparse_best',NaN,'bmd_resident_router_total_s',NaN,'router_from_sparse_total_s',NaN,'router_from_sparse_speedup_vs_sparse_best',NaN,'routed_operation_regret',NaN, ...
+-'break_even_reuses_route_once',NaN,'dense_single_shot_from_sparse_s',NaN,'operation_oracle_winner','','operation_oracle_s',NaN,'single_shot_oracle_winner','','single_shot_oracle_s',NaN,'numeric_check',0);
++'break_even_reuses_route_once',NaN,'dense_single_shot_from_sparse_s',NaN,'operation_oracle_winner','','operation_oracle_s',NaN,'single_shot_oracle_winner','','single_shot_oracle_s',NaN, ...
++'validation_mode','','sparse_crosscheck',0,'bmd_coefficient_exact',NaN,'bmd_modular_fingerprint',NaN,'dense_crosscheck',NaN,'stable_eval_diagnostic',0,'validation_failure_component','','numeric_check',0);
+ end
+ function r=emptyTrialRow()
+ r=struct('case_name','','family','','trial',NaN,'order','','bmd_cold_s',NaN,'sparse_unique_s',NaN,'sparse_sortreduce_s',NaN,'dense_s',NaN);
