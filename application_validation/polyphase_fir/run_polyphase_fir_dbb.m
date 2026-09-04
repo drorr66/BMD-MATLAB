@@ -1,6 +1,7 @@
 %% Polyphase FIR application validation for exact DBB closure
 % External to the frozen v1.1.1 60-case benchmark.
-% Source design: MathWorks FIR Decimation for FPGA example, decimation by 8.
+% Source design specification: MathWorks FIR Decimation for FPGA example,
+% decimation by 8, order 30 Parks-McClellan low-pass specification.
 
 clear; clc;
 repoRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
@@ -14,8 +15,30 @@ if ~exist(outDir,'dir'), mkdir(outDir); end
 M = 8;
 s = 3;
 qBits = 15;
-coeffs = firpm(30,[0 0.1 0.2 0.5]*2,[1 1 0 0]);
-q = round(coeffs * 2^qBits);
+
+% MathWorks example specification:
+%   firpm(30,[0 0.1 0.2 0.5]*2,[1 1 0 0])
+%
+% The frozen Q15 vector below is a toolbox-independent snapshot generated
+% from the same order/band specification with a Parks-McClellan/Remez
+% implementation.  It is used only when Signal Processing Toolbox is not
+% available.  If firpm is available, the experiment uses MATLAB's firpm and
+% reports whether its Q15 coefficients match this snapshot exactly.
+frozenQ15 = [62 55 -44 -205 -252 -11 443 704 310 -738 -1684 -1351 ...
+    979 4789 8377 9847 8377 4789 979 -1351 -1684 -738 310 704 ...
+    443 -11 -252 -205 -44 55 62];
+
+if exist('firpm','file') == 2
+    coeffs = firpm(30,[0 0.1 0.2 0.5]*2,[1 1 0 0]);
+    q = round(coeffs * 2^qBits);
+    coefficientSource = "MATLAB firpm";
+    frozenSnapshotMatch = isequal(q(:).',frozenQ15);
+else
+    q = frozenQ15;
+    coefficientSource = "frozen toolbox-independent Q15 snapshot";
+    frozenSnapshotMatch = true;
+end
+
 if all(q==0), error('Application:FIRQuantization','Q15 quantization produced all zeros.'); end
 P = sparse_terms(0:numel(q)-1,q);
 
@@ -104,8 +127,10 @@ branchExact = all(branchRows.dbb_precheck & branchRows.prediction_new_ok & ...
 
 fid=fopen(fullfile(outDir,'summary.txt'),'w');
 fprintf(fid,'Polyphase FIR DBB application validation\n');
-fprintf(fid,'Source: MathWorks FIR Decimation for FPGA example\n');
-fprintf(fid,'Design: firpm order 30, decimation factor 8, Q15 integer quantization\n');
+fprintf(fid,'Source specification: MathWorks FIR Decimation for FPGA example\n');
+fprintf(fid,'Design: order 30, decimation factor 8, Q15 integer quantization\n');
+fprintf(fid,'Coefficient source: %s\n',char(coefficientSource));
+fprintf(fid,'Frozen Q15 snapshot match: %d\n',frozenSnapshotMatch);
 fprintf(fid,'Whole-filter nontrivial DBB found: %d\n',strong);
 fprintf(fid,'All natural polyphase branches satisfy exact DBB predictions: %d\n',branchExact);
 if strong
@@ -119,7 +144,9 @@ fclose(fid);
 
 disp(searchRows);
 disp(branchRows);
-fprintf('\nStrong external application candidate: %d\n',strong);
+fprintf('\nCoefficient source: %s\n',char(coefficientSource));
+fprintf('Frozen Q15 snapshot match: %d\n',frozenSnapshotMatch);
+fprintf('Strong external application candidate: %d\n',strong);
 fprintf('All natural branches exact: %d\n',branchExact);
 
 %% Local helper: exact integer rank-one factorization by residue modulo stride
