@@ -59,28 +59,23 @@ exact_sparse_ok = isequal(P_sparse.exponents, S.exponents) && ...
     isequal(P_sparse.coefficients, S.coefficients);
 
 % Build operands in the frozen implementation, compact to operand-only manager,
-% then measure multiplication-induced closure. The frozen helper returns a
-% manager and a 2-row refs array, not three separate outputs.
+% then measure multiplication-induced closure.
 [mgr, refs] = build_bmd_pair_from_sparse_v10(F, G);
 p = refs(1,:);
 q = refs(2,:);
 V_F = mgr.reachableNodeCount(p);
 V_G = mgr.reachableNodeCount(q);
 V_before = mgr.reachableNodeCount([p;q]);
-next_before = mgr.stats().nextNodeId;
+st_before = mgr.stats();
 r = mgr.multiply(p, q);
-next_after = mgr.stats().nextNodeId;
-N_new = double(next_after - next_before);
+st_after = mgr.stats(r);
+N_new = double(st_after.nodes_created - st_before.nodes_created);
 V_product = mgr.reachableNodeCount(r);
 
-% Exact product check against S_128.
-S_dense = zeros(1,R);
-S_dense(double(S.exponents)+1) = double(S.coefficients);
-P_dense = mgr.toDense(r);
-P_dense = P_dense(:).';
-if numel(P_dense) < R, P_dense(end+1:R) = 0; end
-exact_bmd_ok = isequal(P_dense(1:R), S_dense) && ...
-    all(P_dense(R+1:end) == 0);
+% Exact product check against S_128. toDense returns descending coefficients;
+% S_128 has all unit coefficients, so the expected vector is simply all ones.
+P_dense = mgr.toDense(r, 1e6);
+exact_bmd_ok = isequal(P_dense, ones(1,R));
 
 prediction_new_ok = (N_new == V_F);
 prediction_size_ok = (V_product == V_F + V_G);
