@@ -59,8 +59,11 @@ exact_sparse_ok = isequal(P_sparse.exponents, S.exponents) && ...
     isequal(P_sparse.coefficients, S.coefficients);
 
 % Build operands in the frozen implementation, compact to operand-only manager,
-% then measure multiplication-induced closure.
-[mgr, p, q] = build_bmd_pair_from_sparse_v10(F, G);
+% then measure multiplication-induced closure. The frozen helper returns a
+% manager and a 2-row refs array, not three separate outputs.
+[mgr, refs] = build_bmd_pair_from_sparse_v10(F, G);
+p = refs(1,:);
+q = refs(2,:);
 V_F = mgr.reachableNodeCount(p);
 V_G = mgr.reachableNodeCount(q);
 V_before = mgr.reachableNodeCount([p;q]);
