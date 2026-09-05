@@ -65,8 +65,10 @@ p = refs(1,:);
 q = refs(2,:);
 V_F = mgr.reachableNodeCount(p);
 V_G = mgr.reachableNodeCount(q);
-V_before = mgr.reachableNodeCount([p;q]);
 st_before = mgr.stats();
+% The helper compacts to the operand union; the manager total is its size.
+% reachableNodeCount accepts a single reference, not the two-row refs array.
+V_before = double(st_before.total_internal_nodes);
 r = mgr.multiply(p, q);
 st_after = mgr.stats(r);
 N_new = double(st_after.nodes_created - st_before.nodes_created);
